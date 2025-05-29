@@ -1,18 +1,18 @@
 # Scenario: Automatic Web Server Recovery Using Ansible EDA
 
-## 🧠 Goal
+##  Goal
 Automatically monitor a web server and restart the NGINX service using **Ansible Event-Driven Automation** if the server becomes unreachable.
 
 ---
 
-## 📝 Use Case
+##  Use Case
 
 You are managing a web server located at `http://192.168.56.1`. This server runs a business-critical application using the **NGINX** web server.  
 To ensure high availability and minimize downtime, you want to **monitor the server health** and **automatically restart NGINX** when the server is detected as down.
 
 ---
 
-## 📁 Files Required
+##  Files Required
 
 ### 1. `check_url_rulebook.yml` (Ansible EDA Rulebook)
 
@@ -37,7 +37,7 @@ rules:
         name: restart_nginx.yml
 ```
 
-✅ **What this does**:
+ **What this does**:
 - Monitors the web server URL every 10 seconds.
 - If it is down, it triggers the next playbook to restart NGINX.
 
@@ -59,15 +59,15 @@ rules:
         state: restarted
 ```
 
-✅ **What this does**:
+ **What this does**:
 - Runs on all hosts defined in your inventory.
 - Uses privilege escalation (`become: true`) to restart the NGINX service.
 
 ---
 
-## ⚙️ How to Implement and Run
+##  How to Implement and Run
 
-### 🖥️ Step 1: Set Up Your Inventory File (e.g., `inventory.ini`)
+###  Step 1: Set Up Your Inventory File (e.g., `inventory.ini`)
 
 ```ini
 [webservers]
@@ -78,7 +78,7 @@ Replace `your_ssh_user` and the key path with appropriate credentials.
 
 ---
 
-### 📦 Step 2: Install Required Tools
+###  Step 2: Install Required Tools
 
 Ensure that you have Python 3.9+ and the following packages:
 
@@ -88,7 +88,7 @@ pip install ansible ansible-rulebook
 
 ---
 
-### 📁 Step 3: Directory Structure
+###  Step 3: Directory Structure
 
 Organize your files like this:
 
@@ -101,7 +101,7 @@ web-recovery/
 
 ---
 
-### ▶️ Step 4: Run the Rulebook
+###  Step 4: Run the Rulebook
 
 Use the following command to start the event-driven automation:
 
@@ -116,7 +116,7 @@ You will see event logs printed in the terminal. If the server becomes unreachab
 
 ---
 
-## ✅ Benefits
+##  Benefits
 
 - No manual monitoring required
 - Lightweight and fast detection (10-second intervals)
@@ -125,7 +125,7 @@ You will see event logs printed in the terminal. If the server becomes unreachab
 
 ---
 
-## 📌 Notes
+##  Notes
 
 - Make sure SSH access and sudo permissions are properly configured on your target server(s).
 - You can test the automation by **stopping NGINX manually** and watching it recover automatically:
