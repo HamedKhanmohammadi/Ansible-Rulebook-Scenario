@@ -1,4 +1,4 @@
-# 🔧 Scenario: Automatic Web Server Recovery Using Ansible EDA
+# Scenario: Automatic Web Server Recovery Using Ansible EDA
 
 ## 🧠 Goal
 Automatically monitor a web server and restart the NGINX service using **Ansible Event-Driven Automation** if the server becomes unreachable.
